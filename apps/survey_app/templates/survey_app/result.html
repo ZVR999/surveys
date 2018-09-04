@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Result</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}">
+</head>
+<body>
+    <p class="green">Thank you for submitting this form! You have submitted this form {{ request.session.counter }} times now.</p>
+    <div>
+            <h2>Submitted Information</h2>
+            <div class="labels">
+                <p>
+                    Name: <br>
+                    Dojo Location: <br>
+                    Favorite Language: <br>
+                    Comment: 
+                </p>
+            </div>
+            <div class="info">
+                {{request.session.your_name}} <br>
+                {{request.session.dojo_location}} <br>
+                {{request.session.favorite_language}} <br>
+                {{request.session.comment}} 
+            </div><br><br>
+            <a href="/">Go Back</a>
+    </div>
+    <br><br>
+    <form action="/reset">
+        <input type="submit" value="Reset Counter">
+    </form>
+</body>
+</html>
